@@ -1,0 +1,26 @@
+class Solution {
+public:
+    /**
+     * @param s: The first string
+     * @param t: The second string
+     * @return: true or false
+     */
+    bool anagram(string &s, string &t) {
+        // write your code here
+        int alpha[256];
+        memset(alpha,0,sizeof(int)*256);
+        int index;
+        for(int i=0;i<t.size();i++){
+            index = t[i];
+            alpha[index] ++;
+        }
+        for(int i=0;i<s.size();i++){
+            index = s[i];
+            alpha[index] --;
+            if(alpha[index] < 0) return false;
+        }
+        for(int i=0;i<256;i++)
+            if(alpha[i] != 0) return false;
+        return true;
+    }
+};
