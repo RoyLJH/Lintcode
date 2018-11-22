@@ -1,0 +1,23 @@
+class Solution {
+public:
+    /**
+     * @param n: An integer
+     * @return: A list of strings.
+     */
+    vector<string> fizzBuzz(int n) {
+        // write your code here
+        vector<string> res;
+        string temp;
+        for(int i=1;i<=n;i++){
+            if(i%3 == 0){
+                if(i%5==0) temp = "fizz buzz";
+                else temp = "fizz";
+            }else{
+                if(i%5==0) temp = "buzz";
+                else temp = to_string(i);
+            }
+            res.push_back(temp);
+        }
+        return res;
+    }
+};
